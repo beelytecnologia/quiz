@@ -1,0 +1,242 @@
+/* ========== PALETA OFICIAL BEEly ========== */
+
+:root{
+    --bee-yellow     : #FFD100; /* R255 G209 B0  */
+    --bee-yellow-lt  : #FFEE32; /* R255 G238 B50 */
+    --bee-black      : #202020; /* R32  G32  B32 */
+    --bee-dark       : #333333; /* R51  G53  B51 */
+    --bee-grey       : #D6D6D6; /* R214 G214 B214 */
+    --radius         : 16px;
+    --shadow         : 0 24px 60px rgba(0,0,0,.25);
+    --transition     : all .25s ease;
+    --font           : "Inter", "Segoe UI", Arial, sans-serif;
+  }
+  
+  /* ======= RESET RÁPIDO ======= */
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--font);background:#FFEE32;background:linear-gradient(145deg,var(--bee-yellow-lt) 0%,var(--bee-yellow) 80%);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+  
+  /* ======= CARTÃO ======= */
+  .quiz-card{
+    width:100%;max-width:620px;background:#fff;border-radius:var(--radius);
+    padding:56px 64px;box-shadow:var(--shadow);position:relative;
+    animation:drop .6s cubic-bezier(.18,.89,.43,1.19)
+  }
+  @keyframes drop{from{opacity:0;transform:translateY(-40px)}to{opacity:1}}
+  
+  /* ======= LOGO & CABEÇALHO ======= */
+  .logo{height:52px;margin:0 auto 28px;display:block}
+  h1{color:var(--bee-black);font-size:2rem;font-weight:800;text-align:center;margin-bottom:6px}
+  .intro{text-align:center;font-size:1rem;color:var(--bee-dark);line-height:1.45;margin-bottom:12px}
+  
+  /* ======= BARRA DE PROGRESSO ======= */
+  #progress{height:10px;background:var(--bee-grey);border-radius:5px;overflow:hidden;margin-bottom:32px}
+  #progress span{display:block;height:100%;width:0;background:var(--bee-black);transition:width .4s ease}
+  
+  /* ======= PASSOS ======= */
+  .step{display:none;animation:fade .3s}
+  .step.active{display:block}
+  @keyframes fade{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:scale(1)}}
+  .step h2{font-size:1.2rem;color:var(--bee-black);margin-bottom:8px}
+  .question{margin:28px 0 20px;font-size:1.1rem;font-weight:600;color:var(--bee-black)}
+  
+  /* ======= BOTÕES DE OPÇÃO ======= */
+  .options{display:grid;gap:20px}
+  .options button{
+    padding:20px 24px;border:3px solid var(--bee-grey);border-radius:var(--radius);
+    background:#fff;color:var(--bee-black);font-size:.97rem;font-weight:600;text-align:left;
+    cursor:pointer;transition:var(--transition)
+  }
+  .options button:hover{background:var(--bee-yellow-lt);border-color:var(--bee-yellow);color:var(--bee-black)}
+  .options button.selected{background:var(--bee-black);border-color:var(--bee-black);color:#fff}
+  
+  /* ======= CAMPOS DE LEAD ======= */
+  input{
+    width:100%;padding:16px;border:2px solid var(--bee-grey);border-radius:var(--radius);
+    font-size:.95rem;transition:border .2s;margin-top:16px
+  }
+  input:focus{outline:none;border-color:var(--bee-yellow);box-shadow:0 0 0 3px rgba(255,209,0,.25)}
+  
+  /* ======= BOTÃO SUBMIT ======= */
+  .submit{
+    width:100%;margin-top:24px;padding:18px;background:var(--bee-black);color:#fff;
+    border:none;border-radius:var(--radius);font-size:1rem;font-weight:700;cursor:pointer;
+    letter-spacing:.2px;transition:var(--transition)
+  }
+  .submit:hover{background:#000}
+  
+  /* ======= RESULTADO ======= */
+  #result{
+    text-align:center;padding:40px;border:3px dashed var(--bee-black);
+    border-radius:var(--radius);background-color: var(--bee-yellow-lt); color:var(--bee-black)
+  }
+  #result h2{font-size:1.7rem;margin-bottom:16px}
+  #result p{margin-bottom:12px;font-size:1rem;line-height:1.45}
+  
+  /* ======= UTILITIES ======= */
+  .hidden{display:none}
+  
+  /* ======= RESPONSIVO ======= */
+  @media (max-width:540px){
+    .quiz-card{padding:40px 28px}
+    h1{font-size:1.7rem}
+    .question{font-size:1rem}
+    .options button{padding:18px;font-size:.9rem}
+  }
+  /* === Hexágono com a arte original ================================ */
+.logo-hex{
+    /* tamanho do “badge” */
+    width:140px; aspect-ratio:1;
+  
+    /* usa o PNG/JPG quadrado que você já tem */
+    background:url("./transferir.png") center/cover no-repeat;
+  
+    /* recorte em hexágono */
+    clip-path:polygon(
+       25% 6.7%, 75% 6.7%,
+       100% 50%,
+       75% 93.3%, 25% 93.3%,
+       0% 50%
+    );
+  
+    /* efeito flutuante */
+    margin:-100px auto 32px;          /* sobrepõe o topo do cartão  */
+    box-shadow:0 12px 24px rgba(0,0,0,.20);
+    animation:hexPop .8s cubic-bezier(.18,.89,.32,1.3);
+  }
+  
+  /* animação suave de “pop-in” */
+  @keyframes hexPop{
+    0%  {transform:scale(.3) rotate(-30deg);opacity:0}
+    70% {transform:scale(1.08) rotate(5deg);opacity:1}
+    100%{transform:scale(1)   rotate(0deg);}
+  }
+  
+  /* --- espaçamento extra no topo do cartão para caber o hexágono --- */
+  .quiz-card{padding-top:120px}
+  
+  /* opcional: deixa a barra de progresso nos tons da marca */
+  #progress{background:#E2E2E2}
+  #progress span{background:var(--bee-yellow)}
+  /* ─── Hexágono “colmeia” ───────────────────────────────────────── */
+.logo-hex{
+    --size: 130px;              /* largura/altura base (mobile)      */
+    width: var(--size);
+    aspect-ratio: 1;
+    background: var(--bee-yellow-lt);          /* amarelo oficial Beely   */
+    clip-path: polygon(
+       25% 6.7%, 75% 6.7%,
+       100% 50%,
+       75% 93.3%, 25% 93.3%,
+       0 50%
+    );
+    display:flex;align-items:center;justify-content:center;
+    margin:-110px auto 40px;    /* sobrepõe o topo do cartão         */
+    box-shadow:0 14px 32px rgba(0,0,0,.22);
+    animation:hexPop .8s cubic-bezier(.18,.89,.32,1.3);
+  }
+  
+  /* Logo nítida dentro do hexágono */
+  .logo-hex img{
+    margin-left: 6px;
+    width:60%;        /* ocupa 70 % da largura do hexágono        */
+    height:auto;
+    user-select:none; pointer-events:none;
+  }
+  
+  /* Versão retina: troca para PNG 2× automaticamente se existir */
+  @media (min-resolution: 192dpi){
+    .logo-hex img[src$=".png"]{
+      content:url("./logo-beely-black.png\ \(3\).png");
+    }
+  }
+  
+  /* Hexágono maior em telas desktop */
+  @media (min-width: 768px){
+    .logo-hex{ --size: 210px; margin-top:-130px; }
+  }
+  
+  /* Espaço extra dentro do cartão para caber o hexágono */
+  .quiz-card{ padding-top: 140px; }
+  
+  /* Animação de entrada */
+  @keyframes hexPop{
+    0%   {transform:scale(.25) rotate(-20deg);opacity:0;}
+    70%  {transform:scale(1.08) rotate(4deg);opacity:1;}
+    100% {transform:scale(1)    rotate(0deg);}
+  }
+  /* animação de ripple */
+.options button{
+    position:relative; overflow:hidden;
+  }
+  
+  .options button::after{
+    content:""; position:absolute; inset:0;
+    background:rgba(255,238,50,.35);  /* amarelo-claro translúcido */
+    transform:scale(0); border-radius:inherit;
+    transition:transform .45s cubic-bezier(.25,.8,.25,1);
+  }
+  .options button:active::after{
+    transform:scale(1);               /* expande em 0.45 s */
+  }
+  .options button:active{
+    transform:scale(.97);             /* leve “bounce-in” */
+  }
+  /* ---------- TAP / FOCUS HIGHLIGHT ---------- */
+.options button{
+    -webkit-tap-highlight-color: transparent;   /* remove flash verde Android */
+  }
+  
+  .options button:focus-visible{
+    outline:3px solid var(--bee-yellow-lt);
+    outline-offset:2px;
+  }
+  
+  /* ---------- ESTADO SELECIONADO ---------- */
+  .options button.selected{
+    background: var(--bee-yellow) !important;   /* amarelo Beely */
+    border-color: var(--bee-yellow);
+    color: var(--bee-black);
+    box-shadow:0 0 0 4px rgba(32,32,32,.12);
+    transform: scale(1);                       /* tira eventuais compressões */
+  }
+  
+  /* ---------- RIPPLE INSANO ---------- */
+  .options button{
+    position:relative; overflow:hidden;
+  }
+  .options button::after{
+    content:""; position:absolute; inset:0;
+    background:rgba(255,209,0,.35);            /* ripple no amarelo mid */
+    transform:scale(0); border-radius:inherit;
+    transition:transform .45s cubic-bezier(.25,.8,.25,1);
+  }
+  .options button:active::after{
+    transform:scale(1);
+  }
+  /* ========== Temas do resultado ========== */
+#result{
+    transition: background .4s ease, color .4s ease, border-color .4s ease;
+  }
+  
+  /* 👑 Rainha Visionária – amarelo intenso */
+  .theme-queen{
+    background: var(--bee-yellow);
+    color: var(--bee-black);
+    border-color: var(--bee-black);
+  }
+  
+  /* ⚙️ Operária Incansável – preto / amarelo para alto contraste */
+  .theme-worker{
+    background: var(--bee-black);
+    color: #fff;
+    border-color: var(--bee-yellow);
+  }
+  
+  /* 🔍 Exploradora Estratégica – amarelo-claro + preto suave */
+  .theme-explorer{
+    background: var(--bee-yellow-lt);
+    color: var(--bee-black);
+    border-color: var(--bee-black);
+  }
+  

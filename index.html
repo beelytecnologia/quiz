@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Quiz Beely – Qual abelha vive em você?</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="shortcut icon" href="./logo-beely-black.png (3).png" type="image/x-icon">
+</head>
+<body>
+  <main class="quiz-card">
+    <!-- Barra de progresso -->
+    <div id="progress"><span></span></div>
+
+    <header>
+        <!-- Hexágono amarelo com a logo centralizada -->
+        <div class="logo-hex">
+          <img src="./logo-beely-black.png (3).png" alt="Beely">
+        </div>
+      
+        <h1>Qual abelha vive em você?</h1>
+        <p class="intro">
+          Na natureza e nos negócios, cada abelha tem um papel essencial.<br>
+          Responda 3 perguntas rápidas e receba
+          <strong>seu perfil + presente digital exclusivo</strong>
+          em menos de 1 minuto.
+        </p>
+      </header>
+      
+      
+      
+
+    <!-- PASSO-A-PASSO -->
+    <form id="quizForm">
+      <!-- Etapas (uma <section> por pergunta) -->
+      <section class="step active" data-step="1">
+        <h2>1/3</h2>
+        <p class="question">Quando surge um desafio no trabalho, o que você faz primeiro?</p>
+        <div class="options">
+          <button data-value="A">Chama o time e lidera a solução</button>
+          <button data-value="B">Arregaça as mangas e começa a executar</button>
+          <button data-value="C">Analisa todos os cenários antes de agir</button>
+        </div>
+      </section>
+
+      <section class="step" data-step="2">
+        <h2>2/3</h2>
+        <p class="question">Qual dessas frases mais te representa?</p>
+        <div class="options">
+          <button data-value="A">“Juntos, chegamos mais longe.”</button>
+          <button data-value="B">“Deixa comigo, eu resolvo!”</button>
+          <button data-value="C">“Cada passo precisa de um bom plano.”</button>
+        </div>
+      </section>
+
+      <section class="step" data-step="3">
+        <h2>3/3</h2>
+        <p class="question">Seu papel ideal em uma equipe seria:</p>
+        <div class="options">
+          <button data-value="A">Inspirar e conectar as pessoas</button>
+          <button data-value="B">Fazer acontecer com praticidade</button>
+          <button data-value="C">Organizar, planejar e otimizar processos</button>
+        </div>
+      </section>
+
+      <!-- Captura de lead -->
+      <section class="step" data-step="4">
+        <h2>Quase lá! 📝</h2>
+        <p class="question">Como podemos te enviar o resultado?</p>
+        <input type="text" id="name" placeholder="Nome completo" required />
+        <input type="text" id="whats" placeholder="WhatsApp com DDD" required />
+        <input type="email" id="email" placeholder="E-mail (opcional)" />
+        <button type="submit" class="submit">Descobrir meu perfil</button>
+      </section>
+    </form>
+
+    <!-- Resultado final -->
+    <section id="result" class="hidden"></section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
