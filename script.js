@@ -2,7 +2,19 @@ const steps   = [...document.querySelectorAll('.step')];
 const form    = document.getElementById('quizForm');
 const progEl  = document.querySelector('#progress span');
 let   curr    = 0;
-const answers = [];                       // agora array de objetos
+const answers = [];                       
+const whatsInput = document.getElementById('whats');
+
+function formatWhatsApp(value) {
+  value = value.replace(/\D/g, ''); 
+  value = value.replace(/^(\d{2})(\d)/g, '($1) $2'); 
+  value = value.replace(/(\d{5})(\d)/, '$1-$2'); 
+  return value.substring(0, 15); 
+}
+
+whatsInput.addEventListener('input', (e) => {
+  e.target.value = formatWhatsApp(e.target.value);
+});
 
 /* -------- Navegação -------- */
 steps.forEach(step=>{
