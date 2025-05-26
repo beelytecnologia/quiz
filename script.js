@@ -78,7 +78,7 @@ form.addEventListener('submit', async e=>{
 
   /* POST para n8n */
   try{
-    await fetch('https://n8n.grupobeely.com.br/webhook-test/8ec0fbc9-ba4f-434a-8c92-61ed971aba35',{
+    await fetch('https://n8n.grupobeely.com.br/webhook/8ec0fbc9-ba4f-434a-8c92-61ed971aba35',{
       method : 'POST',
       headers: { 'Content-Type':'application/json' },
       body   : JSON.stringify(payload)
